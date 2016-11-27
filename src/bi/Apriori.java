@@ -71,7 +71,7 @@ public class Apriori {
         return respuesta;
     }
 
-    private void makeCombos(String[] origen1,String[] origen2, String[] notUse){
+    private void String[] (String[] origen1,String[] origen2, String[] notUse){
         
     }
     private void quitar(HashMap<String, Integer> pPatrones) {
