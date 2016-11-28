@@ -44,15 +44,15 @@ public class Apriori {
 
     public ArrayList<String[]> resolver() {
         ArrayList<String[]> respuesta = new ArrayList<>();
-        
+
         HashMap<String, Integer> oneItems = oneItems();
 
         quitar(oneItems);
-        
-        System.out.println("Patrones One Itemes");
+
+        System.out.println("Patrones 1 Itemes");
 
         String[] pOneItems = new String[oneItems.size()];
-        int i  = 0;
+        int i = 0;
         for (Map.Entry<String, Integer> entry : oneItems.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
@@ -60,22 +60,90 @@ public class Apriori {
             pOneItems[i] = key;
             i++;
         }
-        
+
         respuesta.add(pOneItems);
-        
-        HashMap<String, Integer> combos = new HashMap<>();
-        do{
-            combos.clear();
-            //makeCombos(oneItems, combos, 2);
-        }while(combos.size() > 0);
+
+        HashMap<String, Integer> combos = (HashMap<String, Integer>) oneItems.clone();
+       int p = 2;
+        do {
+            System.out.println("Patrones "+p +" Itemes");
+            String[] o2 = new String[combos.size()];
+            i = 0;
+            for (Map.Entry<String, Integer> entry : combos.entrySet()) {
+                String key = entry.getKey();
+                //Integer value = entry.getValue();
+                o2[i] = key;
+                i++;
+            }
+
+            combos = makeCombos(pOneItems, o2, null);
+
+            for (Map.Entry<String, Integer> entry : combos.entrySet()) {
+                for (Row row : data) {
+                    String key = entry.getKey();
+                    Integer value = entry.getValue();
+
+                    if (row.ishere(key.split(","))) {
+                        combos.put(key, value + 1);
+                    }
+
+                }
+
+            }
+            quitar(combos);
+            i = 0;
+            for (Map.Entry<String, Integer> entry : combos.entrySet()) {
+                String key = entry.getKey();
+                Integer value = entry.getValue();
+                System.out.println(key + " | " + value);
+                i++;
+            }
+            p++;
+        } while (combos.size() > 0);
         return respuesta;
     }
 
-    private void String[] (String[] origen1,String[] origen2, String[] notUse){
-        
+    private HashMap<String, Integer> makeCombos(String[] origen1, String[] origen2, String[] notUse) {
+        HashMap<String, Integer> res = new HashMap<>();
+
+        for (String origen11 : origen1) {
+            for (String origen21 : origen2) {
+
+                if (!origen21.contains(origen11)) {
+                    String[] ls = origen21.split(",");
+
+                    String[] ordenados = new String[ls.length + 1];
+                    int j = 0;
+                    boolean ins = true;
+                    for (int i = 0; i < ls.length; i++) {
+                        if (ls[i].compareTo(origen11) > 0 && ins == true) {
+                            ordenados[j] = origen11;
+                            j++;
+                            ins = false;
+                        }
+
+                        ordenados[j] = ls[i];
+                        j++;
+                    }
+
+                    if (ins) {
+                        ordenados[ls.length] = origen11;
+                    }
+                    String cadena = ordenados[0];
+                    for (int i = 1; i < ordenados.length; i++) {
+                        cadena += "," + ordenados[i];
+                    }
+                    res.put(cadena, 0);
+                }
+            }
+        }
+
+        return res;
+
     }
+
     private void quitar(HashMap<String, Integer> pPatrones) {
-        HashMap<String,Integer> pPatronesC = (HashMap<String, Integer>) pPatrones.clone();
+        HashMap<String, Integer> pPatronesC = (HashMap<String, Integer>) pPatrones.clone();
         for (Map.Entry<String, Integer> entry : pPatronesC.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
@@ -98,12 +166,12 @@ public class Apriori {
                 }
             }
         }
-        for (Map.Entry<String, Integer> entry : oneItems.entrySet()) {
+      /*  for (Map.Entry<String, Integer> entry : oneItems.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
             System.out.println(key + " | " + value);
         }
-
+*/
         return oneItems;
     }
 }
