@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  *
- * @author katie
+ * @author Nestor
  */
 public class Row {
 
@@ -50,6 +50,19 @@ public class Row {
             }
         }
         return count == patron.length;
+    }
+
+    public void sort(HashMap<String, Integer> condition) {
+        for (int i = length() -1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (condition.get((data.get(j))) < condition.get((data.get(j + 1)))) {
+                    String tmp = data.get(j + 1);
+
+                    data.put(j + 1, data.get(j));
+                    data.put(j, tmp);
+                }
+            }
+        }
     }
 
 }

@@ -28,7 +28,7 @@ public class ReadData {
             while ((currentLine = br.readLine()) != null) {
                 String[] cols = currentLine.split(",");
                 Row row = new Row();
-                row.number = i;
+                row.number = i + 1;
                 for (String col : cols) {
                     row.add(col);
                     System.out.print(col + " ");

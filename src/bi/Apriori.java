@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  *
- * @author katie
+ * @author Nestor
  */
 public class Apriori {
 

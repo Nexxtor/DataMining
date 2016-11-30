@@ -22,12 +22,15 @@ public class Bi {
         ArrayList<Row> data = new ArrayList<>();
 
         Scanner readKey = new Scanner(System.in);
-        read.read("C:\\Users\\katie\\Desktop\\archivo.txt", data);
+        read.read("C:\\Users\\Nestor\\Desktop\\archivo.txt", data);
         
-        Apriori metodo = new Apriori(data, 3);
+        FPgrowth metodo = new FPgrowth(data, 2);
         
         metodo.resolver();
 
+        Apriori m  = new Apriori(data,2);
+        
+        m.resolver();
 
     }
 
