@@ -6,7 +6,7 @@
 package bi;
 
 import bi.FpGrowth.FPgrowth;
-import bi.Apriori.Apriori;
+import bi.Apriori;
 import bi.prefixSapm.PrefixSpan;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -27,7 +27,7 @@ public class Bi {
             System.out.println("Integrantes:");
             System.out.println("---Barbara Aparicio\n---Katherine Cabrera\n---Nestor Aldana\n---Marvin Zarceño");
             System.out.println("Menu:");
-            System.out.println("1) Apriori\n2) FP Growth\n3) Prefix Span\n\n\n0) salir");
+            System.out.println("1) Apriori\n2) FP Growth\n3) Prefix Span\n\n\n 4) Generar Archivos \n\n\n0) salir");
             System.out.println("Introduzca un de las opciones:");
 
             Scanner entradaEscaner = new Scanner(System.in); //Creación de un objeto Scanner
@@ -72,6 +72,10 @@ public class Bi {
                 a.setSupport(soporte);
                 a.resolver();
 
+            }
+            
+            if (entradaTeclado.equals("4")) {
+                Registros.generar();
             }
             if (!entradaTeclado.equals("0")) {
                 entradaEscaner.nextLine();

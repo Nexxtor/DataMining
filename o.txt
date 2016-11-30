@@ -1,0 +1,15 @@
+g,h,d,a,f;d,h,f,g;d,g,a;h,a;h,f,d,a;a,h,f,d,g
+d,f,a,g,h
+g;f,h,g,d;f,h,d,g,a;f,a,d,h
+d,g,a,f
+a;h,d,a,f;d,g,a,h,f;f;h,g,a,d;a,f,g,d;g,f,d,h,a;d,f,h
+a,g,f
+a,h;f,h;a,d,f;d;f,a,g;h,a;d;d,f
+g;g,f,d;g,f;g;h,f,g,d,a;g
+f,d,g,h;a,f,g;d;d,f,g;a,d,h;g,f,h;a;g,a;f;g,a
+g,f,a,h,d;f,d,h;f,a,d,g;a,h;g,h;f,g,d,a,h;d;h,d,g;d,f,h,g
+f,g,h,a;h;d;a,f,h;d,f,a,g;h,d,g,f;f,d,g,a,h;g,d,h,f;f,d,a,g
+g,d,a,h,f;a,d,h;f,a,h,g,d;h,g,d,f,a;f,d,h
+g;h,g,d,a,f;g;h,d,g,a;f;g,h;a,f,d,g,h;h,d,f,a,g;f,h,g;f,a,d,h,g
+a,d,g,f
+g,h,f,a;g,f,h,a
