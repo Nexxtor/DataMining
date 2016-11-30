@@ -21,7 +21,64 @@ public class Bi {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      /*  ReadData read = new ReadData();
+        String entradaTeclado = "";
+        do {
+            System.out.println("---------------------------------Mineria de datos----------------------------");
+            System.out.println("Integrantes:");
+            System.out.println("---Barbara Aparicio\n---Katherine Cabrera\n---Nestor Aldana\n---Marvin Zarceño");
+            System.out.println("Menu:");
+            System.out.println("1) Apriori\n2) FP Growth\n3) Prefix Span\n\n\n0) salir");
+            System.out.println("Introduzca un de las opciones:");
+
+            Scanner entradaEscaner = new Scanner(System.in); //Creación de un objeto Scanner
+            entradaTeclado = entradaEscaner.nextLine(); //Invocamos un método sobre un objeto Scanner
+            if (entradaTeclado.equals("1")) {
+                ArrayList<Row> data = new ArrayList<>();
+
+                System.out.println("Ingrese la ruta del archivo");
+
+                String ruta = entradaEscaner.nextLine();
+                System.out.println("Ingrese el soporte");
+                int soporte = entradaEscaner.nextInt();
+                ReadData read = new ReadData();
+                read.read(ruta, data);
+                Apriori m = new Apriori(data, soporte);
+                m.resolver();
+
+            }
+            if (entradaTeclado.equals("2")) {
+                ArrayList<Row> data = new ArrayList<>();
+
+                System.out.println("Ingrese la ruta del archivo");
+
+                String ruta = entradaEscaner.nextLine();
+                System.out.println("Ingrese el soporte");
+                int soporte = entradaEscaner.nextInt();
+                ReadData read = new ReadData();
+                read.read(ruta, data);
+                FPgrowth metodo = new FPgrowth(data, soporte);
+                metodo.resolver();
+
+            }
+            if (entradaTeclado.equals("3")) {
+                ArrayList<Row> data = new ArrayList<>();
+                System.out.println("Ingrese la ruta del archivo");
+
+                String ruta = entradaEscaner.nextLine();
+                System.out.println("Ingrese el soporte");
+                PrefixSpan a = new PrefixSpan();
+                int soporte = entradaEscaner.nextInt();
+                a.setRuta(ruta);
+                a.setSupport(soporte);
+                a.resolver();
+
+            }
+            if (!entradaTeclado.equals("0")) {
+                entradaEscaner.nextLine();
+                entradaEscaner.nextLine();
+            }
+        } while (!entradaTeclado.equals("0"));
+        /*  ReadData read = new ReadData();
         ArrayList<Row> data = new ArrayList<>();
 
         Scanner readKey = new Scanner(System.in);
@@ -34,13 +91,8 @@ public class Bi {
         Apriori m  = new Apriori(data,2);
         
         m.resolver();
-*/
-      PrefixSpan a = new PrefixSpan();
-      
-      a.setRuta("C:\\Users\\Nestor\\Desktop\\archivoP.txt");
-      a.setSupport(2);
-      a.resolver();
-    
+         */
+
     }
 
 }
