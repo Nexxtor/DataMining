@@ -1,5 +1,6 @@
-package bi;
+package bi.FpGrowth;
 
+import bi.Row;
 import java.util.ArrayList;
 
 /**

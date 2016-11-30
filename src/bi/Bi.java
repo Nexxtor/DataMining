@@ -5,6 +5,9 @@
  */
 package bi;
 
+import bi.FpGrowth.FPgrowth;
+import bi.Apriori.Apriori;
+import bi.prefixSapm.PrefixSpan;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,7 +21,7 @@ public class Bi {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ReadData read = new ReadData();
+      /*  ReadData read = new ReadData();
         ArrayList<Row> data = new ArrayList<>();
 
         Scanner readKey = new Scanner(System.in);
@@ -31,7 +34,13 @@ public class Bi {
         Apriori m  = new Apriori(data,2);
         
         m.resolver();
-
+*/
+      PrefixSpan a = new PrefixSpan();
+      
+      a.setRuta("C:\\Users\\Nestor\\Desktop\\archivoP.txt");
+      a.setSupport(2);
+      a.resolver();
+    
     }
 
 }

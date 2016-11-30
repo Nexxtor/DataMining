@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bi;
+package bi.FpGrowth;
 
+import bi.Row;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -180,10 +181,10 @@ public class FPgrowth {
         for (Map.Entry<String, Integer> entry : which.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
-            if (value >= support) {
+            
                 String caminos = key + ": \n {" + arbol.search(key) + "}";
                 System.out.println(caminos);
-            }
+           
         }
     }
 }

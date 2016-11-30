@@ -16,7 +16,7 @@ import java.util.Map;
 public class Row {
 
     private HashMap<Integer, String> data;
-    protected int number;
+    public int number;
     private int cantCol;
 
     public Row() {
